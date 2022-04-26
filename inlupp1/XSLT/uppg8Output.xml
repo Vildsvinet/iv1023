@@ -1,0 +1,107 @@
+<Filmer>
+    <!--Loopa genom filmerna och rendera sorterade på år-->
+    <Film Titel="Sliver" År="1993" Bolag="Universal" Regissör="Phillip Noyce">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Sharon Stone</Skådis>
+        <Skådis>William Baldwin</Skådis>
+        <Skådis>Tom Berenger</Skådis>
+    </Film>
+    <Film Titel="Last Action Hero" År="1993" Bolag="Universal" Regissör="John McTiernan">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Sharon Stone</Skådis>
+        <Skådis>Arnold Schwarzenegger</Skådis>
+    </Film>
+    <Film Titel="Demolition Man" År="1993" Bolag="Warner Bros" Regissör="Marco Brambilla">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Silvester Stallone</Skådis>
+        <Skådis>Wesley Snipes</Skådis>
+        <Skådis>Sandra Bullock</Skådis>
+        <Skådis>Hiro Kanagawa</Skådis>
+    </Film>
+    <Film Titel="Cliffhanger" År="1993" Bolag="Warner Bros" Regissör="Renny Harlin">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Silvester Stallone</Skådis>
+    </Film>
+    <Film Titel="The Kid And I" År="1993" Bolag="Universal" Regissör="Penelope Spheeris">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Tom Arnold</Skådis>
+        <Skådis>Arnold Schwarzenegger</Skådis>
+    </Film>
+    <Film Titel="The Specialist" År="1994" Bolag="Tri-Star" Regissör="Eric Darnell">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Silvester Stallone</Skådis>
+        <Skådis>Sharon Stone</Skådis>
+        <Skådis>James Woods</Skådis>
+    </Film>
+    <Film Titel="True Lies" År="1994" Bolag="Tri-Star" Regissör="James Cameron">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Tom Arnold</Skådis>
+        <Skådis>Jamie Lee Curtis</Skådis>
+        <Skådis>Arnold Schwarzenegger</Skådis>
+        <Skådis>Eliza Dushku</Skådis>
+    </Film>
+    <Film Titel="The Saint" År="1997" Bolag="Universal" Regissör="Phillip Noyce">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Val Kilmer</Skådis>
+        <Skådis>Elisabeth Shue</Skådis>
+    </Film>
+    <Film Titel="Excess Baggage" År="1997" Bolag="Warner Bros" Regissör="Marco Brambilla">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Alicia Silverstone</Skådis>
+        <Skådis>Benicio Del Toro</Skådis>
+        <Skådis>Hiro Kanagawa</Skådis>
+    </Film>
+    <Film Titel="Antz" År="1998" Bolag="Universal" Regissör="Eric Darnell">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Woody Allen</Skådis>
+        <Skådis>Silvester Stallone</Skådis>
+        <Skådis>Sharon Stone</Skådis>
+    </Film>
+    <Film Titel="The Muse" År="1999" Bolag="October Films" Regissör="Pitof">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Andie MacDowell</Skådis>
+        <Skådis>Jeff Bridges</Skådis>
+        <Skådis>Sharon Stone</Skådis>
+    </Film>
+    <Film Titel="Picking Up the Pieces" År="2000" Bolag="Tri-Star" Regissör="Eric Darnell">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Woody Allen</Skådis>
+        <Skådis>Sharon Stone</Skådis>
+        <Skådis>Alfonso Arau</Skådis>
+    </Film>
+    <Film Titel="The 6th Day" År="2000" Bolag="Phoenix Pictures" Regissör="Roger Spottiswoode">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Arnold Schwarzenegger</Skådis>
+        <Skådis>Hiro Kanagawa</Skådis>
+        <Skådis>Robert Duvall</Skådis>
+    </Film>
+    <Film Titel="Driven" År="2001" Bolag="Tri-Star" Regissör="Silvester Stallone">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Burt Reynolds</Skådis>
+        <Skådis>Silvester Stallone</Skådis>
+        <Skådis>Kip Pardue</Skådis>
+    </Film>
+    <Film Titel="Anything Else" År="2003" Bolag="Universal" Regissör="Woody Allen">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Woody Allen</Skådis>
+        <Skådis>Jason Biggs</Skådis>
+        <Skådis>Christina Ricci</Skådis>
+    </Film>
+    <Film Titel="Catwoman" År="2004" Bolag="Universal" Regissör="Pitof">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Sharon Stone</Skådis>
+        <Skådis>Halle Berry</Skådis>
+    </Film>
+    <Film Titel="Hide and Seek" År="2005" Bolag="20th Century Fox" Regissör="John Polson">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>Robert De Niro</Skådis>
+        <Skådis>Dakota Fanning</Skådis>
+        <Skådis>Famke Janssen</Skådis>
+        <Skådis>Elisabeth Shue</Skådis>
+    </Film>
+    <Film Titel="End Game" År="2006" Bolag="Millennium Films" Regissör="Andy Cheng">
+        <!--Loopa genom skådisarna för film och rendera-->
+        <Skådis>James Woods</Skådis>
+        <Skådis>Cuba Gooding Jr</Skådis>
+    </Film>
+</Filmer>

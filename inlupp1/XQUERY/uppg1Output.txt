@@ -1,0 +1,9 @@
+<Resultat>
+  <PBolag Namn="Tri-Star" Jobbare="13"/>
+  <PBolag Namn="Universal" Jobbare="17"/>
+  <PBolag Namn="October Films" Jobbare="4"/>
+  <PBolag Namn="Millennium Films" Jobbare="3"/>
+  <PBolag Namn="20th Century Fox" Jobbare="5"/>
+  <PBolag Namn="Warner Bros" Jobbare="8"/>
+  <PBolag Namn="Phoenix Pictures" Jobbare="4"/>
+</Resultat>

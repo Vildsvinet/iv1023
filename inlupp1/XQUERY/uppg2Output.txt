@@ -1,0 +1,66 @@
+<Resultat>
+  <Film titel="Driven">
+    <Land namn="USA" antalskådisar="2"/>
+    <Land namn="Canada" antalskådisar="1"/>
+  </Film>
+  <Film titel="Antz">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="The Muse">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="End Game">
+    <Land namn="USA" antalskådisar="2"/>
+  </Film>
+  <Film titel="Picking Up the Pieces">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="Anything Else">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="Catwoman">
+    <Land namn="USA" antalskådisar="2"/>
+  </Film>
+  <Film titel="The Specialist">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="Sliver">
+    <Land namn="USA" antalskådisar="3"/>
+  </Film>
+  <Film titel="Last Action Hero">
+    <Land namn="USA" antalskådisar="1"/>
+    <Land namn="Austria" antalskådisar="1"/>
+  </Film>
+  <Film titel="The Saint">
+    <Land namn="USA" antalskådisar="2"/>
+  </Film>
+  <Film titel="Hide and Seek">
+    <Land namn="USA" antalskådisar="3"/>
+    <Land namn="Netherlands" antalskådisar="1"/>
+  </Film>
+  <Film titel="Demolition Man">
+    <Land namn="USA" antalskådisar="3"/>
+    <Land namn="Japan" antalskådisar="1"/>
+  </Film>
+  <Film titel="Excess Baggage">
+    <Land namn="USA" antalskådisar="1"/>
+    <Land namn="Puerto Rico" antalskådisar="1"/>
+    <Land namn="Japan" antalskådisar="1"/>
+  </Film>
+  <Film titel="The 6th Day">
+    <Land namn="Austria" antalskådisar="1"/>
+    <Land namn="Japan" antalskådisar="1"/>
+    <Land namn="USA" antalskådisar="1"/>
+  </Film>
+  <Film titel="Cliffhanger">
+    <Land namn="USA" antalskådisar="1"/>
+  </Film>
+  <Film titel="The Kid And I">
+    <Land namn="USA" antalskådisar="1"/>
+    <Land namn="Austria" antalskådisar="1"/>
+  </Film>
+  <Film titel="True Lies">
+    <Land namn="USA" antalskådisar="3"/>
+    <Land namn="Austria" antalskådisar="1"/>
+  </Film>
+</Resultat>

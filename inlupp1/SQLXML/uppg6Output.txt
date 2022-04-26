@@ -1,0 +1,6 @@
+<Resultat>
+    <Kurslängd antalveckor="2" snittpris="2800"></Kurslängd>
+    <Kurslängd antalveckor="3" snittpris="4500"></Kurslängd>
+    <Kurslängd antalveckor="4" snittpris="6000"></Kurslängd>
+    <Kurslängd antalveckor="5" snittpris="6950"></Kurslängd>
+</Resultat>

@@ -1,0 +1,51 @@
+<Resultat>
+    <Elev namn="Ann Stål">
+        <Lokal>Sirius</Lokal>
+        <Lokal>Orion</Lokal>
+        <Lokal>Jupiter</Lokal>
+    </Elev>
+    <Elev namn="Bo Dahl">
+        <Lokal>Tellus</Lokal>
+        <Lokal>Tellus</Lokal>
+        <Lokal>Sirius</Lokal>
+        <Lokal>Sirius</Lokal>
+    </Elev>
+    <Elev namn="Ebba Ryd">
+        <Lokal>Tellus</Lokal>
+        <Lokal>Jupiter</Lokal>
+        <Lokal>Sirius</Lokal>
+    </Elev>
+    <Elev namn="Eva Jung">
+        <Lokal>Tellus</Lokal>
+        <Lokal>Orion</Lokal>
+        <Lokal>Tellus</Lokal>
+    </Elev>
+    <Elev namn="Kurt Grahn">
+        <Lokal>Tellus</Lokal>
+        <Lokal>Orion</Lokal>
+        <Lokal>Jupiter</Lokal>
+    </Elev>
+    <Elev namn="Lars Holm">
+        <Lokal>Orion</Lokal>
+        <Lokal>Jupiter</Lokal>
+        <Lokal>Jupiter</Lokal>
+    </Elev>
+    <Elev namn="Lola Frid">
+        <Lokal>Tellus</Lokal>
+        <Lokal>Orion</Lokal>
+        <Lokal>Sirius</Lokal>
+    </Elev>
+    <Elev namn="Robert Ahl">
+        <Lokal>Jupiter</Lokal>
+    </Elev>
+    <Elev namn="Sigge Ehn">
+        <Lokal>Orion</Lokal>
+        <Lokal>Sirius</Lokal>
+    </Elev>
+    <Elev namn="Siw Björk">
+        <Lokal>Orion</Lokal>
+        <Lokal>Orion</Lokal>
+        <Lokal>Jupiter</Lokal>
+        <Lokal>Jupiter</Lokal>
+    </Elev>
+</Resultat>

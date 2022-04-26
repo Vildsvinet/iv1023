@@ -1,0 +1,57 @@
+<Resultat>
+    <Kurstillfälle kurskod="DBM1" kursnamn="Databasmetodik"
+                   startdatum="2008-04-02" lokal="Sirius">
+        <Lärare>Sofia Wilsson</Lärare>
+        <AntalElever>4</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="DBM1" kursnamn="Databasmetodik"
+                   startdatum="2009-01-28" lokal="Jupiter">
+        <Lärare>Sofia Wilsson</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="FDBD" kursnamn="Fysisk databasdesign"
+                   startdatum="2008-05-09" lokal="Jupiter">
+        <Lärare>Lena Svensson</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Java2" kursnamn="Java, fortsättningskurs"
+                   startdatum="2008-04-16" lokal="Orion">
+        <Lärare>Bo Åkerman</Lärare>
+        <AntalElever>3</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Java2" kursnamn="Java, fortsättningskurs"
+                   startdatum="2009-01-22" lokal="Orion">
+        <Lärare>Bo Åkerman</Lärare>
+        <AntalElever>3</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Java1" kursnamn="Java, grundkurs"
+                   startdatum="2008-03-06" lokal="Tellus">
+        <Lärare>Bo Åkerman</Lärare>
+        <AntalElever>5</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Java1" kursnamn="Java, grundkurs"
+                   startdatum="2008-05-06" lokal="Jupiter">
+        <Lärare>Bo Åkerman</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Java1" kursnamn="Java, grundkurs"
+                   startdatum="2008-09-02" lokal="Tellus">
+        <Lärare>Carl Nordin</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="Log1" kursnamn="Logik" startdatum="2008-04-16"
+                   lokal="Jupiter">
+        <Lärare>Carl Nordin</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="LDBD" kursnamn="Logisk databasdesign"
+                   startdatum="2008-05-06" lokal="Sirius">
+        <Lärare>Sofia Wilsson</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+    <Kurstillfälle kurskod="LDBD" kursnamn="Logisk databasdesign"
+                   startdatum="2008-09-02" lokal="Orion">
+        <Lärare>Lena Svensson</Lärare>
+        <AntalElever>2</AntalElever>
+    </Kurstillfälle>
+</Resultat>

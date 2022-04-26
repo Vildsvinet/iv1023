@@ -1,0 +1,23 @@
+<Resultat>
+  <Regissör Namn="Silvester Stallone" Land="USA" År="1946"/>
+  <Regissör Namn="Eric Darnell" Land="Ireland" År="1961">
+    <Skådis Namn="Woody Allen" Land="USA"/>
+    <Skådis Namn="Silvester Stallone" Land="USA"/>
+    <Skådis Namn="Sharon Stone" Land="USA"/>
+  </Regissör>
+  <Regissör Namn="Pitof" Land="France" År="1970">
+    <Skådis Namn="Sharon Stone" Land="USA"/>
+  </Regissör>
+  <Regissör Namn="Andy Cheng" Land="China" År="1972"/>
+  <Regissör Namn="Woody Allen" Land="USA" År="1935"/>
+  <Regissör Namn="Phillip Noyce" Land="Australia" År="1950"/>
+  <Regissör Namn="John McTiernan" Land="USA" År="1951"/>
+  <Regissör Namn="John Polson" Land="Australia" År="1965"/>
+  <Regissör Namn="Marco Brambilla" Land="Italy" År="1960">
+    <Skådis Namn="Hiro Kanagawa" Land="Japan"/>
+  </Regissör>
+  <Regissör Namn="Roger Spottiswoode" Land="Canada" År="1945"/>
+  <Regissör Namn="Renny Harlin" Land="Italy" År="1960"/>
+  <Regissör Namn="Penelope Spheeris" Land="USA" År="1945"/>
+  <Regissör Namn="James Cameron" Land="Canada" År="1954"/>
+</Resultat>
