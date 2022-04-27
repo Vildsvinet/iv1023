@@ -9,7 +9,7 @@
                 <title>Books by Genre</title>
             </head>
             <body>
-                <xsl:for-each select="$bok//Book[not(@Genre=preceding::Book/@Genre)]">
+                <xsl:for-each select="$bok//Book[@Genre and not(@Genre=preceding::Book/@Genre)]">
                     <xsl:sort select="@Genre" order="ascending"/>
                     <xsl:variable name="g" select="@Genre"/>
                     <h1>
