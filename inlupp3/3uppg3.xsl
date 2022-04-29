@@ -11,10 +11,11 @@
                 <th>Titel</th>
                 <th>Genre</th>
             </tr>
-            <xsl:for-each select="$books//Book[not(@OriginalLanguage=preceding::Book/@OriginalLanguage)]">
+
+            <xsl:apply-templates select="$books//Book[not(@OriginalLanguage=preceding::Book/@OriginalLanguage)]/@OriginalLanguage">
                 <xsl:sort select="@OriginalLanguage"/>
-                <xsl:apply-templates select="@OriginalLanguage"/>
-            </xsl:for-each>
+            </xsl:apply-templates>
+
         </table>
     </xsl:template>
 
@@ -22,14 +23,19 @@
         <xsl:variable name="ol" select="."/>
         <xsl:variable name="rs" select="count($books//Book[@OriginalLanguage=$ol])"/>
         <tr>
-            <td rowspan="{$rs+1}">
+            <td rowspan="{$rs}">
                 <xsl:value-of select="$ol"/>
             </td>
-            <xsl:for-each select="$books//Book[@OriginalLanguage=$ol]">
-                <xsl:sort select="@Title"/>
-                <xsl:apply-templates select="."/>
-            </xsl:for-each>
+            <td>
+                <xsl:value-of select="$books//Book[@OriginalLanguage=$ol]/@Title"/>
+            </td>
+            <td>
+                <xsl:value-of select="$books//Book[@OriginalLanguage=$ol]/@Genre"/>
+            </td>
         </tr>
+            <xsl:apply-templates select="$books//Book[@OriginalLanguage=$ol]//following-sibling::Book[@OriginalLanguage=$ol]">
+                <xsl:sort select="@Title"/>
+            </xsl:apply-templates>
     </xsl:template>
 
     <xsl:template match="Book">

@@ -23,11 +23,7 @@
                             <xsl:attribute name="Titel">
                                 <xsl:value-of select="@Title"/>
                             </xsl:attribute>
-                            <xsl:if test="@Genre">
-                                <xsl:attribute name="Genre">
-                                    <xsl:value-of select="@Genre"/>
-                                </xsl:attribute>
-                            </xsl:if>
+                            <xsl:copy-of select="@Genre"/>
                         </xsl:element>
                     </xsl:for-each>
                 </xsl:element>
