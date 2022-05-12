@@ -14,7 +14,7 @@ element Resultat{
             return(
                 element Bok{
                     attribute Titel{$bok/@Title},
-                    attribute Genre{$bok/@Genre}
+                    if ($bok/@Genre) then attribute Genre{$bok/@Genre}
                 }
             )
         }
