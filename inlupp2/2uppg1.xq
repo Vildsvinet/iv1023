@@ -4,9 +4,9 @@ element Resultat{
   for $b in //Book
   let $t := $b/@Title
   where count($b//Edition)>1
-  group by $t
+  order by $t
   return
-    <Book Titel="{distinct-values($b/@Title)}"/>
+    <Bok Titel="{$t}"/>
 }
 
 

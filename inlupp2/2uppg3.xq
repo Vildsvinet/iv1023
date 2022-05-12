@@ -2,16 +2,15 @@
 
 element Resultat{
     for $b in //Book
-    let $t := $b/@Title
+    let $t := distinct-values($b/@Title)
     order by $t
-    group by $t
     where $b//Translation/@Language="Russian"
             and $b//Translation/@Language!="Russian"
     return(
         element Bok{
-            attribute Titel {distinct-values($b/@Title)},
-            attribute Originalsprak {$b/@OriginalLanguage},
-            attribute Antalandrasprak{
+            attribute Titel {$b/@Title},
+            attribute Originalspråk {$b/@OriginalLanguage},
+            attribute Antalandraspråk{
                 count(distinct-values($b//Translation/@Language))-1
             }
         }

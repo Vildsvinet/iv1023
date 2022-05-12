@@ -1,13 +1,11 @@
 (: Inlupp 2.2 Ta fram författare per genre :)
 
 element Resultat{
-    for $g in //Book/@Genre
-    group by $g
+    for $g in distinct-values(//Book/@Genre)
     return <Genre Namn="{$g}">{
         for $a in //Author
         let $n := $a/@Name
         where $a/../@Genre = $g
-        group by $n
         return <Författare>{distinct-values($a/@Name)}</Författare>
     }
     </Genre>
