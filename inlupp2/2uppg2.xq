@@ -2,52 +2,60 @@
 
 element Resultat{
     for $g in distinct-values(//Book/@Genre)
-    return <Genre Namn="{$g}">{
+    order by $g
+    return( 
+      <Genre Namn="{$g}">{
         for $a in //Author
         let $n := $a/@Name
         where $a/../@Genre = $g
-        return <Författare>{distinct-values($a/@Name)}</Författare>
-    }
-    </Genre>
+        order by $n
+        return <Författare>{$a/@Name}</Författare>
+        }
+      </Genre>
+    )
 }
 
 (:Output:)
 (:
 <Resultat>
-    <Genre Namn="Thriller">
-        <Författare>John Craft</Författare>
-        <Författare>Jakob Hanson</Författare>
-    </Genre>
-    <Genre Namn="Educational">
-        <Författare>Arnie Bastoft</Författare>
-        <Författare>Meg Gilmand</Författare>
-        <Författare>Chris Ryan</Författare>
-        <Författare>Alan Griff</Författare>
-        <Författare>Marty Faust</Författare>
-        <Författare>Celine Biceau</Författare>
-        <Författare>Sam Davis</Författare>
-        <Författare>Mimi Pappas</Författare>
-        <Författare>Carl George</Författare>
-        <Författare>Peter Feldon</Författare>
-        <Författare>Lilian Carrera</Författare>
-        <Författare>Auna Gonzales Perre</Författare>
-        <Författare>Kostas Andrianos</Författare>
-        <Författare>Andreas Shultz</Författare>
-        <Författare>Antje Liedderman</Författare>
-        <Författare>Christina Ohlsen</Författare>
-        <Författare>Alicia Bing</Författare>
-        <Författare>Linda Evans</Författare>
-        <Författare>Chuck Morrisson</Författare>
-        <Författare>Kay Morrisson</Författare>
-    </Genre>
-    <Genre Namn="Science Fiction">
-        <Författare>Carl Sagan</Författare>
-        <Författare>Leslie Brenner</Författare>
-    </Genre>
-    <Genre Namn="Novel">
-        <Författare>Leslie Brenner</Författare>
-        <Författare>Marie Franksson</Författare>
-        <Författare>James Patterson</Författare>
-        <Författare>Peter de Jonge</Författare>
-    </Genre>
-</Resultat>:)
+  <Genre Namn="Educational">
+    <Författare Name="Alan Griff"/>
+    <Författare Name="Alicia Bing"/>
+    <Författare Name="Andreas Shultz"/>
+    <Författare Name="Antje Liedderman"/>
+    <Författare Name="Arnie Bastoft"/>
+    <Författare Name="Auna Gonzales Perre"/>
+    <Författare Name="Carl George"/>
+    <Författare Name="Celine Biceau"/>
+    <Författare Name="Chris Ryan"/>
+    <Författare Name="Christina Ohlsen"/>
+    <Författare Name="Chuck Morrisson"/>
+    <Författare Name="Kay Morrisson"/>
+    <Författare Name="Kostas Andrianos"/>
+    <Författare Name="Lilian Carrera"/>
+    <Författare Name="Linda Evans"/>
+    <Författare Name="Linda Evans"/>
+    <Författare Name="Marty Faust"/>
+    <Författare Name="Meg Gilmand"/>
+    <Författare Name="Mimi Pappas"/>
+    <Författare Name="Peter Feldon"/>
+    <Författare Name="Samuel Davies"/>
+    <Författare Name="Samuel Davies"/>
+  </Genre>
+  <Genre Namn="Novel">
+    <Författare Name="James Patterson"/>
+    <Författare Name="Leslie Brenner"/>
+    <Författare Name="Marie Franksson"/>
+    <Författare Name="Marie Franksson"/>
+    <Författare Name="Peter de Jonge"/>
+  </Genre>
+  <Genre Namn="Science Fiction">
+    <Författare Name="Carl Sagan"/>
+    <Författare Name="Leslie Brenner"/>
+  </Genre>
+  <Genre Namn="Thriller">
+    <Författare Name="Jakob Hanson"/>
+    <Författare Name="John Craft"/>
+  </Genre>
+</Resultat>
+:)

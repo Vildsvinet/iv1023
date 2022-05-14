@@ -2,7 +2,7 @@
 
 element Resultat{
     for $b in //Book
-    let $t := distinct-values($b/@Title)
+    let $t := $b/@Title
     order by $t
     where $b//Translation/@Language="Russian"
             and $b//Translation/@Language!="Russian"
@@ -21,10 +21,11 @@ element Resultat{
 Output
 
 <Resultat>
-    <Bok Titel="Contact" Originalsprak="English" Antalandrasprak="2"/>
-    <Bok Titel="Encore une fois" Originalsprak="French" Antalandrasprak="1"/>
-    <Bok Titel="European History" Originalsprak="English" Antalandrasprak="11"/>
-    <Bok Titel="Misty Nights" Originalsprak="English" Antalandrasprak="2"/>
-    <Bok Titel="Music Now and Before" Originalsprak="English" Antalandrasprak="3"/>
-    <Bok Titel="Musical Instruments" Originalsprak="English" Antalandrasprak="6"/>
-</Resultat>:)
+  <Bok Titel="Contact" Originalspråk="English" Antalandraspråk="2"/>
+  <Bok Titel="Encore une fois" Originalspråk="French" Antalandraspråk="1"/>
+  <Bok Titel="European History" Originalspråk="English" Antalandraspråk="11"/>
+  <Bok Titel="Misty Nights" Originalspråk="English" Antalandraspråk="2"/>
+  <Bok Titel="Music Now and Before" Originalspråk="English" Antalandraspråk="3"/>
+  <Bok Titel="Musical Instruments" Originalspråk="English" Antalandraspråk="6"/>
+</Resultat>
+:)
