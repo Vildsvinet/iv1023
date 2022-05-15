@@ -12,41 +12,31 @@
                 <th>Genre</th>
             </tr>
 
-            <xsl:apply-templates select="$books//Book[not(@OriginalLanguage=preceding::Book/@OriginalLanguage)]/@OriginalLanguage">
-                <xsl:sort select="@OriginalLanguage"/>
+            <xsl:apply-templates
+                    select="$books//Book[not(@OriginalLanguage=preceding::Book/@OriginalLanguage)]/@OriginalLanguage">
+                <xsl:sort select="."/>
             </xsl:apply-templates>
-
         </table>
     </xsl:template>
 
     <xsl:template match="@OriginalLanguage">
         <xsl:variable name="ol" select="."/>
         <xsl:variable name="rs" select="count($books//Book[@OriginalLanguage=$ol])"/>
-        <tr>
-            <td rowspan="{$rs}">
-                <xsl:value-of select="$ol"/>
-            </td>
-            <td>
-                <xsl:value-of select="$books//Book[@OriginalLanguage=$ol]/@Title"/>
-            </td>
-            <td>
-                <xsl:value-of select="$books//Book[@OriginalLanguage=$ol]/@Genre"/>
-            </td>
-        </tr>
-            <xsl:apply-templates select="$books//Book[@OriginalLanguage=$ol]//following-sibling::Book[@OriginalLanguage=$ol]">
-                <xsl:sort select="@Title"/>
-            </xsl:apply-templates>
-    </xsl:template>
-
-    <xsl:template match="Book">
-        <tr>
-            <td>
-                <xsl:value-of select="@Title"/>
-            </td>
-            <td>
-                <xsl:value-of select="@Genre"/>
-            </td>
-        </tr>
+        <xsl:for-each select="$books//Book[@OriginalLanguage=$ol]">
+            <tr>
+                <xsl:if test="position() = 1">
+                    <td rowspan="{$rs}">
+                        <xsl:value-of select="$ol"/>
+                    </td>
+                </xsl:if>
+                <td>
+                    <xsl:value-of select="@Title"/>
+                </td>
+                <td>
+                    <xsl:value-of select="@Genre"/>
+                </td>
+            </tr>
+        </xsl:for-each>
     </xsl:template>
 
 </xsl:transform>
