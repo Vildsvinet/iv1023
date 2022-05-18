@@ -3,18 +3,17 @@
 element Resultat{
     for $g in distinct-values(//Book/@Genre)
     order by $g
-    return( 
-      <Genre Namn="{$g}">{
-        for $a in //Author
-        let $n := $a/@Name
-        where $a/../@Genre = $g
-        order by $n
-        return <Författare>{$a/@Name}</Författare>
+    return(
+        <Genre Namn="{$g}">{
+            for $a in //Author[not(@Name=preceding::Author/@Name)]
+            let $n := $a/@Name
+            where $a/../@Genre = $g
+            order by $n
+            return <Författare>{$n}</Författare>
         }
-      </Genre>
+        </Genre>
     )
 }
-
 (:Output:)
 (:
 <Resultat>
@@ -34,18 +33,14 @@ element Resultat{
     <Författare Name="Kostas Andrianos"/>
     <Författare Name="Lilian Carrera"/>
     <Författare Name="Linda Evans"/>
-    <Författare Name="Linda Evans"/>
     <Författare Name="Marty Faust"/>
     <Författare Name="Meg Gilmand"/>
     <Författare Name="Mimi Pappas"/>
     <Författare Name="Peter Feldon"/>
     <Författare Name="Samuel Davies"/>
-    <Författare Name="Samuel Davies"/>
   </Genre>
   <Genre Namn="Novel">
     <Författare Name="James Patterson"/>
-    <Författare Name="Leslie Brenner"/>
-    <Författare Name="Marie Franksson"/>
     <Författare Name="Marie Franksson"/>
     <Författare Name="Peter de Jonge"/>
   </Genre>

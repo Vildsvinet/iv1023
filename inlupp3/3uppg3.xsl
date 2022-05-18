@@ -23,6 +23,7 @@
         <xsl:variable name="ol" select="."/>
         <xsl:variable name="rs" select="count($books//Book[@OriginalLanguage=$ol])"/>
         <xsl:for-each select="$books//Book[@OriginalLanguage=$ol]">
+            <xsl:sort select="@Title"/>
             <tr>
                 <xsl:if test="position() = 1">
                     <td rowspan="{$rs}">
