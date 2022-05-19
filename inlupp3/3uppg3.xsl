@@ -21,8 +21,9 @@
 
     <xsl:template match="@OriginalLanguage">
         <xsl:variable name="ol" select="."/>
-        <xsl:variable name="rs" select="count($books//Book[@OriginalLanguage=$ol])"/>
-        <xsl:for-each select="$books//Book[@OriginalLanguage=$ol]">
+        <xsl:variable name="bs" select="$books//Book[@OriginalLanguage=$ol]"/>
+        <xsl:variable name="rs" select="count($bs)"/>
+        <xsl:for-each select="$bs">
             <xsl:sort select="@Title"/>
             <tr>
                 <xsl:if test="position() = 1">
