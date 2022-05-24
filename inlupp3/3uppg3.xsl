@@ -14,7 +14,7 @@
 
             <xsl:apply-templates
                     select="$books//Book[not(@OriginalLanguage=preceding::Book/@OriginalLanguage)]/@OriginalLanguage">
-                <xsl:sort select="."/>
+                <xsl:sort/>
             </xsl:apply-templates>
         </table>
     </xsl:template>
