@@ -1,19 +1,23 @@
+/*Inlupp 4.7
+  Ta fram information om på vilka språk varje förlag har böcker!
+  */
+
 SELECT XMLELEMENT(NAME "Resultat", XMLAGG(förlagtabell.förlag))
 FROM
     (
         SELECT XMLELEMENT(NAME "Förlag",
                           XMLATTRIBUTES(språktabell.förlagsnamn AS "namn", Publisher.country AS "land"),
                           XMLAGG(språktabell.språk)
-              ) förlag
+                   ) förlag
         FROM Publisher,
              (
                  SELECT Publisher.name AS förlagsnamn, XMLELEMENT(NAME "Språk", tt.språk) AS språk
                  FROM Publisher, Edition,
                       XMLTABLE('$t//Translation'
-                          PASSING translations AS "t"
-	                      COLUMNS Förlag VARCHAR(30) PATH '@Publisher',
-                                  Språk VARCHAR(15) PATH '@Language'
-                      ) tt
+                                   PASSING translations AS "t"
+                               COLUMNS Förlag VARCHAR(30) PATH '@Publisher',
+                               Språk VARCHAR(15) PATH '@Language'
+                          ) tt
                  WHERE Publisher.name = tt.Förlag
                  GROUP BY Publisher.name, tt.Språk
                  ORDER BY Publisher.name, tt.Språk
