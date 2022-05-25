@@ -1,6 +1,7 @@
---Den senaste upplagan (edition) av boken "Encore une fois" har översatts till norska och
---kostar 200 kronor. Den är utgiven av förlaget KLC. Gör ändringen i databasen
---
+/*Inlupp 4.5
+  Den senaste upplagan (edition) av boken "Encore une fois" har översatts till norska och
+  kostar 200 kronor. Den är utgiven av förlaget KLC. Gör ändringen i databasen
+*/
 
 UPDATE Edition
 SET translations =
@@ -25,7 +26,8 @@ WHERE edition.id =
                             )
       )
 
--- OUTPUT:
---  TITLE           	TRANSLATIONS
---  --------------- 	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---  Encore une fois	<Translations><Translation Language="English" Publisher="Pels And Jafs" Price="180"/><Translation Language="Russian" Price="140"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/></Translations>
+/*OUTPUT
+  TITLE           	TRANSLATIONS
+  --------------- 	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Encore une fois	<Translations><Translation Language="English" Publisher="Pels And Jafs" Price="180"/><Translation Language="Russian" Price="140"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/><Translation Language="Norwegian" Publisher="KLC" Price="200"/></Translations>
+*/
