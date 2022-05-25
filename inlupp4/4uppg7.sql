@@ -1,6 +1,6 @@
 /*Inlupp 4.7
   Ta fram information om på vilka språk varje förlag har böcker!
-  */
+*/
 
 SELECT XMLELEMENT(NAME "Resultat", XMLAGG(förlagtabell.förlag))
 FROM

@@ -1,8 +1,7 @@
 /*Inlupp 4.8
   Det har visat sig att den franska översättningen av 1999-års upplaga av "Archeology in
-Egypt" är utgiven av förlaget "ABC International" och inte av "KLC". Gör ändringen i
-databasen!
-  */
+  Egypt" är utgiven av förlaget "ABC International" och inte av "KLC". Gör ändringen i databasen!
+*/
 
 UPDATE Edition
 SET Translations =
@@ -14,7 +13,6 @@ SET Translations =
 		return $res'
         PASSING Translations as "t"
         )
-
 WHERE Edition.id =
       (SELECT Edition.id
        FROM Edition, Book
@@ -23,8 +21,8 @@ WHERE Edition.id =
          AND Edition.year = 1999
        )
 
-/* Output sample
- ID 	YEAR 	PRICE 	TRANSLATIONS                                                                                                                                                                                                                                                                             	BOOK
- -- 	---- 	----- 	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 	----
-  4	1999	  280	<Translations><Translation Language="French" Publisher="ABC International" Price="320"/><Translation Language="Italian" Publisher="KLC" Price="320"/><Translation Language="Turkish" Publisher="Turk And Turk" Price="300"/><Translation Language="Spanish" Price="300"/></Translations>	   2
+/*OUTPUT
+ TITLE                        	YEAR 	TRANSLATIONS
+ ---------------------------- 	---- 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Archeology in Egypt         	1999	<Translations><Translation Language="French" Publisher="ABC International" Price="320"/><Translation Language="Italian" Publisher="KLC" Price="320"/><Translation Language="Turkish" Publisher="Turk And Turk" Price="300"/><Translation Language="Spanish" Price="300"/></Translations>
 */
