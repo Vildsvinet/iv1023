@@ -1,4 +1,6 @@
---Vilka böcker har varje författare skrivit?
+/*Inlupp 4.3
+  Vilka böcker har varje författare skrivit?
+*/
 
 SELECT XMLELEMENT(NAME "Alla", XMLAGG(hold))
 FROM(
@@ -12,13 +14,13 @@ FROM(
             )
         )
     ) AS hold
-    FROM Author, Authorship, Book, XMLTABLE('$t//Country'
-        PASSING Info AS "t"
-        COLUMNS Land VARCHAR(30) PATH '.') AS tt
+    FROM Author, Authorship, Book,
+         XMLTABLE('$t//Country'
+            PASSING Info AS "t"
+            COLUMNS Land VARCHAR(30) PATH '.') AS tt
     WHERE  book.id = authorship.book AND author.id = authorship.author
     GROUP BY Author.name, tt.Land
 )
-
 
 /*OUTPUT
 <Alla>
@@ -78,6 +80,7 @@ FROM(
     </Författare>
     <Författare Namn="Leslie Brenner" Land="USA">
         <Bok Titel="The Fourth Star" OrginalSpråk="English" Genre="Science Fiction"/>
+        <Bok Titel="The Fifth Star" OrginalSpråk="English" Genre="Novel"/>
     </Författare>
     <Författare Namn="Lilian Carrera" Land="Spain">
         <Bok Titel="European History" OrginalSpråk="English" Genre="Educational"/>
@@ -113,6 +116,4 @@ FROM(
         <Bok Titel="Musical Instruments" OrginalSpråk="English" Genre="Educational"/>
     </Författare>
 </Alla>
-
-
   */

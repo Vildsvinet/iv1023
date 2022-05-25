@@ -1,4 +1,6 @@
---Vilka böcker har flera utgåvor?
+/*Inlupp 4.1
+  Vilka böcker har flera utgåvor?
+*/
 
 SELECT XMLELEMENT(NAME "Resultat", XMLAGG(books))
 FROM (
@@ -16,10 +18,15 @@ FROM (
          GROUP BY book.title
      )
 
-/*output
-
- 1
- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- <Resultat><Bok Titel="Archeology in Egypt"/><Bok Titel="Database Systems in Practice"/><Bok Titel="Encore une fois"/><Bok Titel="Music Now and Before"/><Bok Titel="Musical Instruments"/><Bok Titel="Oceanography for Dummies"/><Bok Titel="Oceans on Earth"/><Bok Titel="Våren vid sjön"/></Resultat>
-
+/*Output
+  <Resultat>
+    <Bok Titel="Archeology in Egypt"/>
+    <Bok Titel="Database Systems in Practice"/>
+    <Bok Titel="Encore une fois"/>
+    <Bok Titel="Music Now and Before"/>
+    <Bok Titel="Musical Instruments"/>
+    <Bok Titel="Oceanography for Dummies"/>
+    <Bok Titel="Oceans on Earth"/>
+    <Bok Titel="Våren vid sjön"/>
+  </Resultat>
 */
