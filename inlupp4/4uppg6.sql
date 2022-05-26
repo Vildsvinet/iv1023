@@ -20,8 +20,10 @@ FROM Book, Edition,
               FROM Edition,
                    XMLTABLE('$t//Translation'
                         PASSING translations AS "t"
-				        COLUMNS Language VARCHAR(15) PATH '@Language') AS tt) AS t1
-                 RIGHT JOIN Edition ON t1.bookid = Edition.book
+				        COLUMNS Language VARCHAR(15) PATH '@Language'
+                    ) AS tt
+              ) AS t1
+              RIGHT JOIN Edition ON t1.bookid = Edition.book
          GROUP BY edition.book
      ) AS languagetable
 WHERE Book.id = Edition.book
