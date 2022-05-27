@@ -3,14 +3,13 @@
 */
 
 SELECT Förlag AS Namn, Land, title AS Title, genre AS Genre
-FROM
-    (
-        SELECT publisher.country as Land, edition.book, x.value('@Publisher', 'VARCHAR(30)') AS Förlag
-        FROM publisher, edition CROSS APPLY translations.nodes('//Translation') AS Translation(x)
-        WHERE publisher.name = x.value('@Publisher', 'VARCHAR(30)')
-    ) AS Förlag,
-    book AS Bok
-WHERE NOT(Förlag = 'null') and Bok.id = book
+FROM (SELECT publisher.country AS Land, edition.book, x.value('@Publisher', 'VARCHAR(30)') AS Förlag
+      FROM publisher,
+           edition
+               CROSS APPLY translations.nodes('//Translation') AS Translation(x)
+      WHERE publisher.name = x.value('@Publisher', 'VARCHAR(30)')) AS Förlag,
+     book AS Bok
+WHERE Bok.id = book
 GROUP BY title, Förlag, Genre, Land
 ORDER BY Förlag
 FOR XML AUTO, ROOT('Resultat')
