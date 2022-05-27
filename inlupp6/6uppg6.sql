@@ -26,7 +26,7 @@ FROM Book,
                          x.value('@Language', 'VARCHAR(20)')  AS språk
                   FROM edition CROSS APPLY translations.nodes('//Translation') AS Translation(x)
 				RIGHT JOIN book
-                  on book.id=edition.book) AS t1) t2
+                  ON book.id=edition.book) AS t1) t2
       GROUP BY title) languagetable
 
 WHERE Book.id = Edition.book
