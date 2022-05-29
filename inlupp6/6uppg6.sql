@@ -19,7 +19,7 @@ FROM Book,
       WHERE Book.id = Authorship.book
       GROUP BY Book.id) AS authortable,
 
-     (SELECT t2.title, COUNT(distinct (språk)) + 1 as NrOfLanguages
+     (SELECT t2.title, COUNT(distinct (språk)) + 1 AS NrOfLanguages
       FROM (SELECT t1.title, t1.språk
             FROM (SELECT title,
                          book.id,

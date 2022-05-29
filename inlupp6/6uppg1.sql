@@ -1,3 +1,7 @@
+/*Inlupp 6.1
+  Vilka böcker har flera utgåvor?
+*/
+
 SELECT Book.title AS Titel
 FROM Book, Edition
 WHERE book.id=edition.book
