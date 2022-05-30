@@ -2,6 +2,9 @@
   Ta fram följande information om samtliga böcker: titel, originalspråk, genre, antal
   upplagor, antal olika språk boken finns tillgänglig på, antal författare och året då den
   tidigaste upplagan kom.
+  //TODO Förenkla lösningen så att tabellen book endast används en gång.
+  //Använd inte tabellen book så många gånger. Joina inte med titeln.
+  //Använd primärnyckel och främmande nyckeln. Delen som tar fram antal språk kan plattas till och förenklas.
 */
 
 SELECT book.Title,

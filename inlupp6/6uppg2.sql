@@ -1,8 +1,9 @@
 /*Inlupp 6.2
   Vilka böckers översättningar har publicerats av varje förlag?
+  //TODO Det hade varit enklare att behålla kolumnen name istället för att använda metoden value på kolumnen x.
 */
 
-SELECT Förlag AS Namn, Land, title AS Titel, genre AS Genre
+SELECT DISTINCT Förlag AS Namn, Land, title AS Titel, genre AS Genre
 FROM (SELECT publisher.country AS Land, edition.book, x.value('@Publisher', 'VARCHAR(30)') AS Förlag
       FROM publisher,
            edition
@@ -10,7 +11,7 @@ FROM (SELECT publisher.country AS Land, edition.book, x.value('@Publisher', 'VAR
       WHERE publisher.name = x.value('@Publisher', 'VARCHAR(30)')) AS Förlag,
      book AS Bok
 WHERE Bok.id = book
-GROUP BY title, Förlag, Genre, Land
+--GROUP BY title, Förlag, Genre, Land       -ersatt med DISTINCT, samma output
 ORDER BY Förlag
 FOR XML AUTO, ROOT('Resultat')
 

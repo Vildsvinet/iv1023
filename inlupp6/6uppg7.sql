@@ -1,5 +1,6 @@
 /*Inlupp 6.7
   Ta fram information om på vilka språk varje förlag har böcker!
+  //TODO GROUP BY-klausulen verkar onödig. (check) Tabellen Publisher borde inte behövas två gånger.
 */
 
 SELECT publisher.name AS "@namn", publisher.country AS "@land",
@@ -8,7 +9,7 @@ SELECT publisher.name AS "@namn", publisher.country AS "@land",
         WHERE p.name = x.value('@Publisher','VARCHAR(20)') AND p.name = publisher.name
         FOR XML AUTO, ELEMENTS, TYPE)
 FROM publisher
-GROUP BY publisher.name, publisher.country
+--GROUP BY publisher.name, publisher.country
 ORDER BY publisher.name
 FOR XML PATH ('Förlag'), ROOT('Resultat')
 

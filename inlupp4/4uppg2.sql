@@ -8,7 +8,7 @@ FROM
         SELECT Publisher.name AS förlagsnamn, Publisher.country AS förlagsland, XMLAGG(t2.bokelement) AS boklista
         FROM Publisher,
              (
-                 SELECT Book.title AS boktitel, tt.Förlag AS förlagsnamn, XMLELEMENT(NAME "Bok", XMLATTRIBUTES(Book.title AS "Titel", Book.genre AS "Genre")) AS bokelement
+                 SELECT tt.Förlag AS förlagsnamn, XMLELEMENT(NAME "Bok", XMLATTRIBUTES(Book.title AS "Titel", Book.genre AS "Genre")) AS bokelement
                  FROM Edition, Book,
                       XMLTABLE('$t//Translation'
                                PASSING translations AS "t"
