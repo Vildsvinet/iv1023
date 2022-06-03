@@ -22,7 +22,7 @@ WHERE edition.id =
             FROM book, edition
             WHERE title = 'Encore une fois'
             AND book.id = edition.book
-            ORDER BY (year) DESC
+            ORDER BY edition.year DESC
         )
         FETCH FIRST 1 ROWS ONLY
     )

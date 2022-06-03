@@ -2,24 +2,23 @@
   Vilka böckers översättningar har publicerats av varje förlag?
 */
 
-SELECT XMLELEMENT(NAME "Resultat", XMLAGG(XMLELEMENT(NAME "Förlag", XMLATTRIBUTES(förlagsnamn AS "Namn", förlagsland AS "Land"), boklista)))
-FROM
-    (
-        SELECT Publisher.name AS förlagsnamn, Publisher.country AS förlagsland, XMLAGG(t2.bokelement) AS boklista
-        FROM Publisher,
-             (
-                 SELECT tt.Förlag AS förlagsnamn, XMLELEMENT(NAME "Bok", XMLATTRIBUTES(Book.title AS "Titel", Book.genre AS "Genre")) AS bokelement
-                 FROM Edition, Book,
-                      XMLTABLE('$t//Translation'
-                               PASSING translations AS "t"
-                               COLUMNS Förlag VARCHAR(30) PATH '@Publisher'
-                          ) tt
-                 WHERE Edition.book = Book.id
-                 GROUP BY Book.title, Book.genre, tt.Förlag
-             ) t2
-        WHERE Publisher.name = t2.förlagsnamn
-        GROUP BY Publisher.name, Publisher.country
-    )
+SELECT XMLELEMENT(NAME "Resultat",
+                  XMLAGG(XMLELEMENT(NAME "Förlag", XMLATTRIBUTES(förlagsnamn AS "Namn", förlagsland AS "Land"),
+                                    boklista)))
+FROM (SELECT Publisher.name AS förlagsnamn, Publisher.country AS förlagsland, XMLAGG(t2.bokelement) AS boklista
+      FROM Publisher,
+           (SELECT tt.Förlag                                                                           AS förlagsnamn,
+                   XMLELEMENT(NAME "Bok", XMLATTRIBUTES(Book.title AS "Titel", Book.genre AS "Genre")) AS bokelement
+            FROM Edition,
+                 Book,
+                 XMLTABLE('$t//Translation'
+                          PASSING translations AS "t"
+                          COLUMNS Förlag VARCHAR(30) PATH '@Publisher'
+                     ) tt
+            WHERE Edition.book = Book.id
+            GROUP BY Book.title, Book.genre, tt.Förlag) t2
+      WHERE Publisher.name = t2.förlagsnamn
+      GROUP BY Publisher.name, Publisher.country)
 
 /*OUTPUT
   <Resultat>

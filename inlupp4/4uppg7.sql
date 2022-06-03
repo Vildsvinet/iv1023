@@ -2,41 +2,20 @@
   Ta fram information om på vilka språk varje förlag har böcker!
   Feedback
   - Varför använder ni tabellen Publisher två gånger?
-    Svar : det ska vara ändrat nu, osäker på om du ville ha ännu mer förenkling men då ändrar vi igen :)
 */
 
-SELECT XMLELEMENT(NAME "Resultat", XMLAGG(förlagtabell.förlag))
-FROM (SELECT XMLELEMENT(NAME "Förlag",
-                        XMLATTRIBUTES(språktabell.förlagsnamn AS "namn", språktabell.förlagsland AS "land"),
-                        XMLAGG(språktabell.språk)
-                 ) förlag
-      FROM (SELECT Publisher.name                     AS förlagsnamn,
-                   Publisher.country                  AS förlagsland,
-                   XMLELEMENT(NAME "Språk", tt.språk) AS språk
-            FROM Publisher,
-                 Edition,
-                 XMLTABLE('$t//Translation'
-                        PASSING translations AS "t"
-                        COLUMNS Förlag VARCHAR(30) PATH '@Publisher',
-                                Språk VARCHAR(15) PATH '@Language'
-                     ) tt
-            WHERE Publisher.name = tt.Förlag
-            GROUP BY Publisher.name, Publisher.country, tt.Språk
-            ORDER BY Publisher.name, tt.Språk) språktabell
-      GROUP BY språktabell.förlagsnamn, språktabell.förlagsland) förlagtabell
-
 SELECT XMLELEMENT(NAME "Resultat", XMLAGG(Hold))
-from (Select XMLELEMENT(NAME "Förlag", XMLATTRIBUTES(name AS "namn", country as "land"),
-                        XMLAGG(xmlelement(NAME "Språk", språk))) as hold
-      from publisher,
-           (Select distinct Språk, Förlag
-            from edition,
+FROM (SELECT XMLELEMENT(NAME "Förlag", XMLATTRIBUTES(name AS "namn", country AS "land"),
+                        XMLAGG(xmlelement(NAME "Språk", språk))) AS hold
+      FROM publisher,
+           (SELECT DISTINCT Språk, Förlag
+            FROM edition,
                  XMLTABLE('$t//Translation'
-                              PASSING translations AS "t"
-                          COLUMNS Språk VARCHAR(30) PATH '@Language'
-                     , Förlag VARCHAR(30) PATH '@Publisher') AS tt)
-      where förlag = publisher.Name
-      group by förlag, country, name)
+                    PASSING translations AS "t"
+                    COLUMNS Språk VARCHAR(30) PATH '@Language',
+                            Förlag VARCHAR(30) PATH '@Publisher') AS tt)
+      WHERE förlag = publisher.Name
+      GROUP BY förlag, country, name)
 
 
 /* OUTPUT:

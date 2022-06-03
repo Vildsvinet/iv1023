@@ -2,41 +2,26 @@
   Ta fram följande information om samtliga böcker: titel, originalspråk, genre, antal
   upplagor, antal olika språk boken finns tillgänglig på, antal författare och året då den
   tidigaste upplagan kom.
-  //TODO Förenkla lösningen så att tabellen book endast används en gång.
+  //Feedback:
+  //Förenkla lösningen så att tabellen book endast används en gång.
   //Använd inte tabellen book så många gånger. Joina inte med titeln.
   //Använd primärnyckel och främmande nyckeln. Delen som tar fram antal språk kan plattas till och förenklas.
 */
 
-SELECT book.Title,
-       OriginalLanguage,
-       Genre,
-       COUNT(Edition.book) AS NrOfEditions,
-       languagetable.NrOfLanguages,
-       authortable.NrOfAuthors,
-       MIN(Edition.year)   AS FirstEdition
-FROM Book,
-     Edition,
-     (SELECT Book.id AS authorid, COUNT(Authorship.author) AS NrOfAuthors
-      FROM Book,
-           Authorship
-      WHERE Book.id = Authorship.book
-      GROUP BY Book.id) AS authortable,
+/*Ny lösning*/
+SELECT ttt.title,  ttt.originallanguage, ttt.genre, ISNULL(antalSpråk, 0) +1 AS "Antal Språk" ,
+       ca AS "Antal författare", ce AS "Antal upplagor", MIN(year) AS "Året den tidigaste upplagen kom"
+FROM
+    (SELECT edition.book AS språkboktrack, count(edition.book) AS antalSpråk
+     FROM edition cross apply translations.nodes('//Translation') AS Translation(x)
+     GROUP BY edition.book) AS ids full outer join edition ON edition.book = språkboktrack,
 
-     (SELECT t2.title, COUNT(distinct (språk)) + 1 AS NrOfLanguages
-      FROM (SELECT t1.title, t1.språk
-            FROM (SELECT title,
-                         book.id,
-                         x.value('@Language', 'VARCHAR(20)')  AS språk
-                  FROM edition CROSS APPLY translations.nodes('//Translation') AS Translation(x)
-				RIGHT JOIN book
-                  ON book.id=edition.book) AS t1) t2
-      GROUP BY title) languagetable
-
-WHERE Book.id = Edition.book
-  AND authortable.authorid = Book.id
-  AND languagetable.title = Book.title
-GROUP BY book.title, OriginalLanguage, Genre, NrOfAuthors, NrOfLanguages
-ORDER BY book.title
+    (SELECT count(author) AS ca, book.id AS språkboktrack2, title, genre, book.originallanguage, count(book.id) AS ce
+     FROM authorship, book
+     WHERE authorship.book = book.id
+     GROUP BY book.id, title, genre, originallanguage) AS ttt
+WHERE edition.book = språkboktrack2
+GROUP BY språkboktrack, antalSpråk, ttt.title, ttt.genre, ca, ttt.originallanguage, ce
 
 /*OUTPUT
 Title                                              OriginalLanguage     Genre                NrOfEditions NrOfLanguages NrOfAuthors FirstEdition
@@ -58,3 +43,36 @@ The Beach House                                    English              Novel   
 The Fourth Star                                    English              Science Fiction      1            2             1           2001
 Våren vid sjön                                     Swedish              Novel                2            1             1           1982
 */
+
+
+/*OLD SOLUTION*/
+-- SELECT book.Title,
+--        OriginalLanguage,
+--        Genre,
+--        COUNT(Edition.book) AS NrOfEditions,
+--        languagetable.NrOfLanguages,
+--        authortable.NrOfAuthors,
+--        MIN(Edition.year)   AS FirstEdition
+-- FROM Book,
+--      Edition,
+--      (SELECT Book.id AS bookidfromauthortable, COUNT(Authorship.author) AS NrOfAuthors
+--       FROM Book,
+--            Authorship
+--       WHERE Book.id = Authorship.book
+--       GROUP BY Book.id) AS authortable,
+--
+--      (SELECT t2.title, COUNT(distinct (språk)) + 1 AS NrOfLanguages
+--       FROM (SELECT t1.title, t1.språk
+--             FROM (SELECT title,
+--                          book.id,
+--                          x.value('@Language', 'VARCHAR(20)')  AS språk
+--                   FROM edition CROSS APPLY translations.nodes('//Translation') AS Translation(x)
+--                                RIGHT JOIN book
+--                                           ON book.id=edition.book) AS t1) t2
+--       GROUP BY title) languagetable
+--
+-- WHERE Book.id = Edition.book
+--   AND authortable.bookidfromauthortable = Book.id
+--   AND languagetable.title = Book.title
+-- GROUP BY book.title, OriginalLanguage, Genre, NrOfAuthors, NrOfLanguages
+-- ORDER BY book.title

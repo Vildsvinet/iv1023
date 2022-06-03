@@ -4,18 +4,40 @@
   //TODO Använd inte FROM (check) och förenkla villkoret så att varje tabell används en gång.
 */
 
---Utan FROM men förmodligen fortfarande för "krångligt" villkor
+/*Förslag på ny lösning*/
 UPDATE edition
-SET translations.modify
-        ('
-        	insert <Translation Language = "Swedish" Publisher = "Bonniers" Price = "200"/> as last into (/Translations)[1]
-        ')
-WHERE edition.book = (SELECT id FROM book WHERE title = 'Encore une fois')
-  AND edition.year = (SELECT max(year)
-                      FROM edition
-                      WHERE edition.book = (SELECT id
-                                            FROM book
-                                            WHERE title = 'Encore une fois'))
+SET translations.modify ('insert <Translation Language = "Norwegian" Publisher = "KLC" Price = "200"/> as last into (/Translations)[1]')
+WHERE edition.book = (
+    SELECT book.id
+    FROM edition ed, book
+    WHERE ed.book = book.id AND book.title = 'Encore une fois'
+    GROUP BY book.id
+    HAVING MAX(ed.year) = edition.year
+)
+
+
+
+/*OUTPUT
+<Translations>
+  <Translation Language="English" Publisher="Pels And Jafs" Price="180" />
+  <Translation Language="Russian" Price="140" />
+  <Translation Language="Norwegian" Publisher="KLC" Price="200" />
+</Translations>
+*/
+
+/****************************SLACK********************************/
+--Utan FROM men förmodligen fortfarande för "krångligt" villkor
+-- UPDATE edition
+-- SET translations.modify
+--         ('
+--         	insert <Translation Language = "Swedish" Publisher = "Bonniers" Price = "200"/> as last into (/Translations)[1]
+--         ')
+-- WHERE edition.book = (SELECT id FROM book WHERE title = 'Encore une fois')
+--   AND edition.year = (SELECT max(year)
+--                       FROM edition
+--                       WHERE edition.book = (SELECT id
+--                                             FROM book
+--                                             WHERE title = 'Encore une fois'))
 
 -- Old discarded
 -- UPDATE edition
@@ -30,11 +52,3 @@ WHERE edition.book = (SELECT id FROM book WHERE title = 'Encore une fois')
 --                       FROM edition, book
 --                       WHERE edition.book = book.id
 --                         AND book.title = 'Encore une fois')
-
-/*OUTPUT
-<Translations>
-  <Translation Language="English" Publisher="Pels And Jafs" Price="180" />
-  <Translation Language="Russian" Price="140" />
-  <Translation Language="Norwegian" Publisher="KLC" Price="200" />
-</Translations>
-*/
