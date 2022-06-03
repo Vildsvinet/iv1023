@@ -11,11 +11,11 @@ SET translations.modify
         	insert <Translation Language = "Swedish" Publisher = "Bonniers" Price = "200"/> as last into (/Translations)[1]
         ')
 WHERE edition.book = (SELECT id FROM book WHERE title = 'Encore une fois')
-  AND edition.year = (select max(year)
-                      from edition
-                      where edition.book = (select id
-                                            from book
-                                            where title = 'Encore une fois'))
+  AND edition.year = (SELECT max(year)
+                      FROM edition
+                      WHERE edition.book = (SELECT id
+                                            FROM book
+                                            WHERE title = 'Encore une fois'))
 
 -- Old discarded
 -- UPDATE edition

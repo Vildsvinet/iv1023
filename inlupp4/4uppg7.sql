@@ -25,6 +25,20 @@ FROM (SELECT XMLELEMENT(NAME "Förlag",
             ORDER BY Publisher.name, tt.Språk) språktabell
       GROUP BY språktabell.förlagsnamn, språktabell.förlagsland) förlagtabell
 
+SELECT XMLELEMENT(NAME "Resultat", XMLAGG(Hold))
+from (Select XMLELEMENT(NAME "Förlag", XMLATTRIBUTES(name AS "namn", country as "land"),
+                        XMLAGG(xmlelement(NAME "Språk", språk))) as hold
+      from publisher,
+           (Select distinct Språk, Förlag
+            from edition,
+                 XMLTABLE('$t//Translation'
+                              PASSING translations AS "t"
+                          COLUMNS Språk VARCHAR(30) PATH '@Language'
+                     , Förlag VARCHAR(30) PATH '@Publisher') AS tt)
+      where förlag = publisher.Name
+      group by förlag, country, name)
+
+
 /* OUTPUT:
 <Resultat>
     <Förlag namn="ABC International" land="Germany">

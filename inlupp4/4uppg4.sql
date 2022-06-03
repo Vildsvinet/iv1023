@@ -47,20 +47,3 @@ ORDER BY Author.name
  Pierre Zargone      Belgium
  Sam Davis           Mexiko
 */
-
-/*OLD SOLUTION
-SELECT DISTINCT Author.name, it.land
-FROM Edition, Author, Authorship,
-     XMLTABLE(
-             '$t//Translation[@Language="Russian"]'
-             PASSING Translations AS "t"
-             COLUMNS Språk VARCHAR(30) PATH '@Language'
-         ) AS tt,
-     XMLTABLE(
-             '$a//Info'
-             PASSING Info AS "a"
-             COLUMNS Land VARCHAR(30) PATH 'Country'
-         ) AS it
-WHERE edition.book = authorship.book AND author.id = authorship.author
-ORDER BY Author.name
- */
