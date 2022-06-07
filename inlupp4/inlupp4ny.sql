@@ -90,7 +90,7 @@ SET translations =
         transform
         copy $res := $t
         modify do insert element
-            Translation {attribute Language {"GURKA"}, attribute Publisher {"KLC"}, attribute Price {200}}
+            Translation {attribute Language {"Norwegian"}, attribute Publisher {"KLC"}, attribute Price {200}}
         as last into $res/Translations
         return $res'
                  PASSING translations AS "t"
@@ -139,25 +139,25 @@ WHERE edition.book = språkboktrack2
 GROUP BY edition.book, antalSpråk, title, genre, ca, originallanguage, ce
 
 /*OUTPUT
- TITLE                        ORIGINALLANGUAGE GENRE           NROFEDITIONS NROFLANGUAGES NROFAUTHORS FIRSTEDITION
- ---------------------------- ---------------- --------------- ------------ ------------- ----------- ------------
- Archeology in Egypt          English          Educational                3             7           3         1992
- Contact                      English          Science Fiction            1             4           1         1988
- Database Systems in Practice English          Educational                2             1           3         2000
- Dödliga Data                 Swedish          Thriller                   1             1           1         1993
- Encore une fois              French           NULL                       2             4           1         1997
- European History             English          Educational                1            13           8         1998
- Le chateau de mon pere       French           NULL                       1             6           1         1964
- Midsommar i Lund             Swedish          Novel                      1             2           1         1988
- Misty Nights                 English          Thriller                   1             4           1         1987
- Music Now and Before         English          Educational                3             4           2         1997
- Musical Instruments          English          Educational                2             8           2         1991
- Oceanography for Dummies     English          Educational                2             2           1         2004
- Oceans on Earth              English          Educational                4             7           3         1996
- The Beach House              English          Novel                      1             1           2         2002
- The Fifth Star               English          Novel                      1             2           1         2003
- The Fourth Star              English          Science Fiction            1             2           1         2001
- Våren vid sjön               Swedish          Novel                      2             1           1         1982
+ TITLE                        	ORIGINALLANGUAGE 	GENRE           	Antal Språk 	Antal författare 	Antal upplagor 	Året den tidigaste upplagen kom
+ ---------------------------- 	---------------- 	--------------- 	----------- 	---------------- 	-------------- 	-------------------------------
+ Misty Nights                	English         	Thriller       	          4	               1	             1	                           1987
+ Archeology in Egypt         	English         	Educational    	          7	               3	             3	                           1992
+ Database Systems in Practice	English         	Educational    	          1	               3	             3	                           2000
+ Contact                     	English         	Science Fiction	          4	               1	             1	                           1988
+ The Fourth Star             	English         	Science Fiction	          2	               1	             1	                           2001
+ Våren vid sjön              	Swedish         	Novel          	          1	               1	             1	                           1982
+ Dödliga Data                	Swedish         	Thriller       	          1	               1	             1	                           1993
+ Music Now and Before        	English         	Educational    	          4	               2	             2	                           1997
+ Midsommar i Lund            	Swedish         	Novel          	          2	               1	             1	                           1988
+ Encore une fois             	French          	NULL           	          5	               1	             1	                           1997
+ European History            	English         	Educational    	         13	               8	             8	                           1998
+ Musical Instruments         	English         	Educational    	          8	               2	             2	                           1991
+ Oceans on Earth             	English         	Educational    	          7	               3	             3	                           1996
+ The Beach House             	English         	Novel          	          1	               2	             2	                           2002
+ Le chateau de mon pere      	French          	NULL           	          6	               1	             1	                           1964
+ Oceanography for Dummies    	English         	Educational    	          2	               1	             1	                           2004
+ The Fifth Star              	English         	Novel          	          2	               1	             1	                           2003
 */
 
 /*************************************************************************************/

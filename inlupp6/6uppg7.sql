@@ -3,15 +3,17 @@
   //TODO GROUP BY-klausulen verkar onödig. (check) Tabellen Publisher borde inte behövas två gånger.
 */
 
+/*Ny lösning*/
 SELECT publisher.name AS "@namn", publisher.country AS "@land",
-        (SELECT DISTINCT x.value('@Language', 'VARCHAR(20)')
-        FROM publisher p, edition CROSS APPLY translations.nodes('//Translation') AS Språk(x)
-        WHERE p.name = x.value('@Publisher','VARCHAR(20)') AND p.name = publisher.name
+       (SELECT DISTINCT x.value('@Language', 'VARCHAR(20)')
+        FROM edition CROSS APPLY translations.nodes('//Translation') AS Språk(x)
+        WHERE x.value('@Publisher','VARCHAR(20)') = publisher.name
         FOR XML AUTO, ELEMENTS, TYPE)
 FROM publisher
---GROUP BY publisher.name, publisher.country
 ORDER BY publisher.name
 FOR XML PATH ('Förlag'), ROOT('Resultat')
+
+
 
 /*OUTPUT
 <Resultat>
@@ -81,3 +83,17 @@ FOR XML PATH ('Förlag'), ROOT('Resultat')
   </Förlag>
 </Resultat>
 */
+
+
+/*OLD SOLUTION
+  SELECT publisher.name AS "@namn", publisher.country AS "@land",
+        (SELECT DISTINCT x.value('@Language', 'VARCHAR(20)')
+        FROM publisher p, edition CROSS APPLY translations.nodes('//Translation') AS Språk(x)
+        WHERE p.name = x.value('@Publisher','VARCHAR(20)') AND p.name = publisher.name
+        FOR XML AUTO, ELEMENTS, TYPE)
+FROM publisher
+--GROUP BY publisher.name, publisher.country
+ORDER BY publisher.name
+FOR XML PATH ('Förlag'), ROOT('Resultat')
+
+  */
