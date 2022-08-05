@@ -61,7 +61,7 @@ FROM(
 group by genre
 
 
-_
+/*below is actually kinda good*/
 SELECT XMLELEMENT(NAME "Resultat", XMLAGG(tst))
 FROM
     (
@@ -91,26 +91,5 @@ FROM
 
 --select genre, count(book.id) as antal from book group by genre
 
-        SELECT XMLELEMENT(NAME "Resultat", XMLAGG(tst))
-FROM
-    (
-    SELECT XMLELEMENT(NAME "Genre", XMLATTRIBUTES(genre as "namn", antal as "antalböcker"), spraaak) AS tst
-    FROM (
-    SELECT antal, genre, XMLAGG(XMLELEMENT(NAME "Språk", språk)) as spraaak
-    FROM (
-    select distinct genre, t1.språk as språk, count(book.id) as antal
-    from book,
-    (select book, language as språk
-    from edition, xmltable('$t//Translation'
-    PASSING translations as "t"
-    COLUMNS language VARCHAR(20) PATH '@Language'
-    )
-    ) t1
-    WHERE book.id = t1.book
-    GROUP BY genre, språk
-    --ORDER BY genre
-    ) t2
-    GROUP BY genre, antal
-    )
-    )
+
 --XMLELEMENT(NAME "Genre", XMLAGG(XMLELEMENT(NAME "Språk", språk)))
