@@ -8,7 +8,7 @@ FROM (
      (
          SELECT city, COUNT(*) as antalforlag
          FROM publisher
-         GROUP BY city, country
+         GROUP BY city
      ) Stad
 WHERE Land.city = Stad.city
 ORDER BY country

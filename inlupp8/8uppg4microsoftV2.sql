@@ -6,13 +6,13 @@ FROM (
          FROM publisher
      ) Land,
      (
-         SELECT city, COUNT(*) as antalforlag
+         SELECT city, country, COUNT(*) as antalforlag
          FROM publisher
          GROUP BY city, country
      ) Stad
-WHERE Land.city = Stad.city
-ORDER BY country
-FOR XML AUTO, ROOT('Resultat')
+WHERE Land.city = Stad.city AND Land.country=Stad.country
+ORDER BY Land.country
+    FOR XML AUTO, ROOT('Resultat')
 
 
 /*
@@ -40,6 +40,9 @@ FOR XML AUTO, ROOT('Resultat')
   </Land>
   <Land namn="Italy">
     <Stad namn="Florence" antalförlag="1" />
+  </Land>
+  <Land namn="Kanada">
+    <Stad namn="London" antalförlag="1" />
   </Land>
   <Land namn="Russia">
     <Stad namn="Saint Petersburg" antalförlag="1" />
