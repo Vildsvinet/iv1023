@@ -1,3 +1,5 @@
+(:OBSOBS OBSOLET DÅLIG SE v2:)
+
 element Länder{
     for $l in distinct-values(//Country)
 
