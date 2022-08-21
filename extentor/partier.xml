@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AktuellaUppdragDB>
+    <Parti namn="Socialdemokraterna">
+        <Ledamot namn="Johan Löfstrand" födelseår="1976">
+            <Uppdrag roll="ordförande" utskott="Civilutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Finansutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Hillevi Larsson" födelseår="1974">
+            <Uppdrag roll="suppleant" utskott="Försvarsutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Kulturutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Monica Green" födelseår="1959">
+            <Uppdrag roll="ordförande" utskott="Trafikutskottet"/>
+            <Uppdrag roll="suppleant" utskott="Kulturutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Arhe Hamednaca" födelseår="1953"/>
+    </Parti>
+    <Parti namn="Moderaterna">
+        <Ledamot namn="Ewa Thalén Finné" födelseår="1959">
+            <Uppdrag roll="ledamot" utskott="Civilutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Finansutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Jessika Roswall" födelseår="1972">
+            <Uppdrag roll="ledamot" utskott="Försvarsutskottet"/>
+            <Uppdrag roll="ordförande" utskott="Justitieutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Cecilia Widegren" födelseår="1973">
+            <Uppdrag roll="ordförande" utskott="Skatteutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Trafikutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Kulturutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Maria Stockhaus" födelseår="1963">
+            <Uppdrag roll="suppleant" utskott="Justitieutskottet"/>
+            <Uppdrag roll="ordförande" utskott="Försvarsutskottet"/>
+        </Ledamot>
+    </Parti>
+    <Parti namn="Sverigedemokraterna">
+        <Ledamot namn="Roger Hedlund" födelseår="1979">
+            <Uppdrag roll="ledamot" utskott="Civilutskottet"/>
+            <Uppdrag roll="suppleant" utskott="Utbildningsutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Angelika Bengtsson" födelseår="1990">
+            <Uppdrag roll="suppleant" utskott="Försvarsutskottet"/>
+            <Uppdrag roll="suppleant" utskott="Kulturutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Linus Bylund" födelseår="1978"/>
+        <Ledamot namn="Dennis Dioukarev" födelseår="1993" />
+    </Parti>
+    <Parti namn="Miljöpartiet">
+        <Ledamot namn="Jonas Eriksson" födelseår="1967"/>
+        <Ledamot namn="Emma Hult" födelseår="1988">
+            <Uppdrag roll="ledamot" utskott="Försvarsutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Justitieutskottet"/>
+            <Uppdrag roll="ordförande" utskott="Kulturutskottet"/>
+        </Ledamot>
+        <Ledamot namn="Annika Hirvonen" födelseår="1989">
+            <Uppdrag roll="ordförande" utskott="Finansutskottet"/>
+            <Uppdrag roll="ledamot" utskott="Kulturutskottet"/>
+        </Ledamot>
+    </Parti>
+</AktuellaUppdragDB>
