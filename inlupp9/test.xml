@@ -1,0 +1,37 @@
+('John Higgins',1975,'
+<root>
+    <employment startdate="2001-08-20" enddate="2009-02-28" employer="ABB"/>
+    <employment startdate="2009-04-15" employer="UPC"/>
+</root>'),
+        ('Stephen Hendry',1973,'<root>
+<employment startdate="2002-08-20" enddate="2003-06-30" employer="ABB"/>
+<employment startdate="2003-08-01" employer="UPC"/>
+<employment startdate="2006-11-01" employer="ABB"/>
+</root>'),
+        ('Matthew Stevens',1982,'<root>
+<employment startdate="2003-01-10" employer="UPC"/>
+</root>'),
+        ('Ronnie O''Sullivan',1980,'<root>
+<employment startdate="2002-03-10" enddate="2010-05-22" employer="LKP"/>
+<employment startdate="2010-08-15" employer="STG"/>
+</root>'),
+        ('Ken Doherty',1974,'<root>
+<employment startdate="2002-02-12" enddate="2003-05-11" employer="LKP"/>
+<employment startdate="2003-05-12" enddate="2003-12-02" employer="ABB"/>
+<employment startdate="2003-12-06" enddate="2005-02-17" employer="LKP"/>
+<employment startdate="2005-02-18" enddate="2008-05-16" employer="FFD"/>
+<employment startdate="2008-06-02" employer="STG"/>
+</root>'),
+        ('Steve Davis',1960,'<root>
+<employment startdate="2001-01-05" enddate="2005-12-31" employer="ABB"/>
+<employment startdate="2006-01-15" enddate="2009-01-22" employer="LKP"/>
+<employment startdate="2009-02-01" employer="FFD"/>
+</root>'),
+        ('Paul Hunter',1983,'<root>
+<employment startdate="2004-01-10" enddate="2008-09-29" employer="FFD"/>
+<employment startdate="2008-10-01" enddate="2010-11-20" employer="LKP"/>
+</root>'),
+        ('Neil Robertson',1982,'<root>
+<employment startdate="2006-02-03" enddate="2008-10-30" employer="UPC"/>
+<employment startdate="2008-11-20" employer="ABB"/>
+</root>');
