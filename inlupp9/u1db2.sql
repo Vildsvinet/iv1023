@@ -6,7 +6,7 @@ SELECT XMLELEMENT(NAME "Resultat", XMLAGG(colours))
 FROM (
          SELECT XMLELEMENT(NAME "Färg", XMLATTRIBUTES(color AS "namn"),
                            XMLAGG(XMLELEMENT(NAME "Person",
-                                   XMLATTRIBUTES(cart.NAME AS "namn", empt.antalarbetsgivare AS "antalarbetsgivare",
+                                  XMLATTRIBUTES(cart.NAME AS "namn", empt.antalarbetsgivare AS "antalarbetsgivare",
                                                  empt.antalanställningar AS "antalanställningar")))) AS colours
          FROM (SELECT DISTINCT COLOR, OWNER, NAME
                FROM car,
